@@ -8,7 +8,7 @@ WORKDIR /app
 COPY ./app /app
 
 # Install dependencies
-RUN pip install fastapi uvicorn tensorflow
+RUN pip install fastapi uvicorn tensorflow pydantic numpy
 
 # Expose the port your FastAPI app runs on
 EXPOSE 8000
