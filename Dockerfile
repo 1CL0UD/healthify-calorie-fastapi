@@ -5,13 +5,17 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the FastAPI app code into the container
-COPY ./app /app
+COPY ./ /app/
 
 # Install dependencies
-RUN pip install fastapi uvicorn tensorflow pydantic numpy
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
 
 # Expose the port your FastAPI app runs on
+
+ENV HOST 0.0.0.0
+
 EXPOSE 8000
 
-# Command to run the FastAPI app using Uvicorn server
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "main.py"]
