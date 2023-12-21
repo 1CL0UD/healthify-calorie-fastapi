@@ -32,12 +32,6 @@ def index():
 def index():
     return f"Hello test"
 
-# Check the type and attributes of the loaded model
-print(type(model))  # Check the type of the loaded model
-
-# Print all attributes/methods of the loaded model
-print(dir(model))
-
 port = os.environ.get("PORT", 8000)
 print(f"Listening to http://0.0.0.0:{port}/test")
 uvicorn.run(app, host='0.0.0.0',port=port)
